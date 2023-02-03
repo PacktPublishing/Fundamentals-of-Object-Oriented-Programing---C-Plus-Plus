@@ -1,0 +1,49 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+
+using namespace std;
+
+/*Files & Streams - Writing To A File
+**
+*/
+
+int main()
+{
+    char ch;
+    int i;
+    double d;
+    string str1;
+    string str2;
+
+    ifstream infile("filedata.txt"); //creates ifstream object
+
+    infile >> ch >> i >> d >> str1  >> str2; //extract and store data in variables
+
+    cout << ch << endl
+         << i << endl
+         << d << endl
+         << str1 << endl
+         << str2 << endl;
+
+
+//    char ch = 'x';
+//    int i = 80;
+//    double d = 6.02;
+//    string str1 = "November";
+//    string str2 = "Rush";
+//
+//    ofstream outfile("filedata.txt"); // create ofstream object
+//
+//    //insert (write) data
+//    outfile << ch
+//            << i
+//            << ' '
+//            << d
+//            << str1
+//            << ' '
+//            << str2;
+//    cout << "File written\n";
+
+    return 0;
+}

@@ -1,0 +1,219 @@
+#ifndef EMPLOYEE_H
+#define EMPLOYEE_H
+
+#include "Address.h"
+#include <iostream>
+
+using namespace std;
+
+class Employee
+{
+    public:
+        Employee();
+        virtual ~Employee();
+        double CalculateSalary() { return NULL; }
+        void SetDetails(Address);
+        void DisplayDetails();
+
+    protected:
+        string name;
+        string phoneNum;
+        string emailAddr;
+        int empId;
+        Address address;
+
+    private:
+};
+
+#endif // EMPLOYEE_H
+#include "Employee.h"
+
+Employee::Employee()
+{
+    //ctor
+}
+
+Employee::~Employee()
+{
+    //dtor
+}
+
+void Employee::SetDetails(Address addr){
+    cout << "Enter name: "; getline(cin, name);
+    cout << "Enter employee Id: "; cin >> empId;
+    cout << "Enter email address: "; cin >> emailAddr;
+    cout << "Enter phone number: "; cin >> phoneNum;
+    address = addr;
+}
+
+void Employee::DisplayDetails(){
+    cout << "\nName: " << name << endl;
+    cout << "Employee Id: " << empId << endl;
+    cout << "Email: " << emailAddr << endl;
+    cout << "Phone number: " << phoneNum << endl;
+    address.GetAddress();
+
+}
+
+
+#ifndef ADDRESS_H
+#define ADDRESS_H
+
+#include <iostream>
+
+using namespace std;
+
+class Address
+{
+    public:
+        Address();
+        virtual ~Address();
+
+        void SetAddress(string, string, string, string, string);
+        void GetAddress();
+
+    protected:
+
+    private:
+        string street;
+        string city;
+        string province;
+        string postalCode;
+        string country;
+};
+
+#endif // ADDRESS_H
+#include "Address.h"
+
+Address::Address()
+{
+    //ctor
+}
+
+Address::~Address()
+{
+    //dtor
+}
+
+void Address::SetAddress(string st, string cty, string prov, string post, string ctry){
+    street=st;
+    city=cty;
+    province=prov;
+    postalCode=post;
+    country=ctry;
+}
+
+void Address::GetAddress(){
+    cout << street << ", \n" << city << " " << province << "\n" << postalCode
+        << " , \n" << country << endl;
+}
+
+
+#ifndef MANAGER_H
+#define MANAGER_H
+
+#include <Employee.h>
+#include <iostream>
+
+using namespace std;
+
+
+class Manager : public Employee
+{
+    public:
+        Manager();
+        Manager(string, string, double);
+        virtual ~Manager();
+
+        void DisplayDetails();
+        double CalculateSalary();
+
+    protected:
+
+    private:
+        string title;
+        string department;
+        double salary;
+};
+
+#endif // MANAGER_H
+#include "Manager.h"
+
+Manager::Manager()
+{
+    //ctor
+}
+
+Manager::~Manager()
+{
+    //dtor
+}
+
+Manager::Manager(string ti, string dept, double sal){
+    title=ti;
+    department=dept;
+    salary=sal;
+}
+
+void Manager::DisplayDetails(){
+    cout << "\nName: " << name << endl;
+    cout << "Title: " << title << endl;
+    cout << "Department: " << department << endl;
+    cout << "Employee Id: " << empId << endl;
+    cout << "Email: " << emailAddr << endl;
+    cout << "Phone number: " << phoneNum << endl;
+    address.GetAddress();
+}
+
+double Manager::CalculateSalary(){
+    double taxes = salary*.27;
+    return salary -= taxes;
+}
+
+
+#ifndef LABORER_H
+#define LABORER_H
+
+#include <Employee.h>
+#include <iostream>
+
+using namespace std;
+
+
+class Laborer : public Employee
+{
+    public:
+        Laborer();
+        Laborer(double, double);
+        virtual ~Laborer();
+
+        double CalculateSalary();
+
+    protected:
+
+    private:
+        double hourlyWage;
+        double hoursWorked;
+};
+
+#endif // LABORER_H
+#include "Laborer.h"
+
+Laborer::Laborer()
+{
+    //ctor
+}
+
+Laborer::~Laborer()
+{
+    //dtor
+}
+
+Laborer::Laborer(double wage, double hrs){
+    hourlyWage=wage;
+    hoursWorked=hrs;
+}
+
+double Laborer::CalculateSalary(){
+    return hourlyWage*hoursWorked;
+}

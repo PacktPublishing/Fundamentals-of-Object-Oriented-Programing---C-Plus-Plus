@@ -1,0 +1,29 @@
+#include <iostream>
+
+using namespace std;
+
+
+/* Exception Handling: try, throw & catch
+**
+*/
+
+int main () {
+
+    try{
+        int age = 16;
+        if(age >= 18){
+            cout << "You're old enough and have been granted access.\n";
+        }else{
+            //throw (age);
+            throw 505;
+        }
+    }
+    catch (...){
+        cout << "Access denied - You must be at least 18 years of age.\n";
+        //cout << "Age is: " << e << endl;
+        cout << "Error code: " << e << endl;
+    }
+
+
+    return 0;
+}

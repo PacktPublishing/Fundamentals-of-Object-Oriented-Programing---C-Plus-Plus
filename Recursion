@@ -1,0 +1,35 @@
+#include <iostream>
+
+using namespace std;
+
+
+/* Recursion
+**
+*/
+
+unsigned long Factorial(unsigned long); //declaration
+
+int main()
+{
+    int n; //number entered by user
+    unsigned long fact; // factorial
+
+    cout << "Enter a number: ";
+    cin >> n;
+    fact = Factorial(n);
+
+    cout << "Factorial of " << n << " is " << fact << endl;
+
+    return 0;
+}
+
+//calls itself to calculate factorials
+
+unsigned long Factorial(unsigned long n){
+
+    if(n>1)
+        return n * Factorial(n-1); //self call
+    else
+        return 1;
+}
+

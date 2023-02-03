@@ -1,0 +1,38 @@
+#include <iostream>
+
+using namespace std;
+
+
+/* Data Structures
+ *
+*/
+
+struct product{
+    int quantity;
+    double price;
+    string name;
+} p2, p3;
+
+
+int main()
+{
+    product p1; //initialize structure object
+
+    p1.name = "yogurt";
+    p1.price = 1.99;
+    p1.quantity = 3;
+
+    p2.name = "spinach";
+    p2.price = 3.49;
+    p2.quantity = 1;
+
+    p3.name = "club soda";
+    p3.price = 3.11;
+    p3.quantity = 6;
+
+    cout << "The cost of the " << p1.name << ": " << p1.price * p1.quantity << endl;
+    cout << "The cost of the " << p2.name << ": " << p2.price * p2.quantity << endl;
+    cout << "The cost of the " << p3.name << ": " << p3.price * p3.quantity << endl;
+
+    return 0;
+}

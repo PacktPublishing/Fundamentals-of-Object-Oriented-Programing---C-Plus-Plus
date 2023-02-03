@@ -1,0 +1,67 @@
+#include <iostream>
+#include <list>
+
+using namespace std;
+
+
+/* The Standard Template Library:
+** Lists
+*/
+
+int main()
+{
+
+    int j;
+    list<int> list1, list2;
+
+    int arr1[] = {10, 20, 30, 40};
+    int arr2[] = {15, 25, 35, 40, 50};
+
+    for(j=0; j<4; j++){
+        list1.push_back(arr1[j]);
+    }
+
+    for(j=0; j<5; j++){
+        list2.push_back(arr2[j]);
+    }
+
+    //list1.reverse();
+    list1.merge(list2);
+    list1.unique(); //removes duplicate
+
+    int size = list1.size();
+
+    while(!list1.empty()){
+        cout << list1.front() << ' '; //reads items from front
+        list1.pop_front();
+    }
+
+    cout << endl;
+
+
+
+
+
+
+
+//    list<int> ilist;
+//
+//    ilist.push_back(10); //push items to back
+//    ilist.push_back(15);
+//    ilist.push_back(20);
+//    ilist.push_front(7); //push items to front
+//    ilist.push_front(8);
+//    ilist.push_front(9);
+//
+//    int listSize = ilist.size();
+//
+//    for(int i=0; i<listSize; i++){
+//        cout << ilist.front() << ' '; //read from the front of list
+//        ilist.pop_front(); //pop item off front of list
+//    }
+//
+//    cout << endl;
+
+    return 0;
+}
+

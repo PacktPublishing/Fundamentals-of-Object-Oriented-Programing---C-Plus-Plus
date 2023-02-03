@@ -1,0 +1,41 @@
+#include <iostream>
+
+using namespace std;
+
+
+/* SWITCH statement
+ * Calculator program
+*/
+
+int main()
+{
+    char operand;
+    float num1, num2;
+
+    //user prompt
+    cout << "Enter an operator (+, -, *, /): ";
+    cin >> operand;
+    cout << "Enter two numbers: " << endl;
+    cin >> num1 >> num2;
+
+    //switch statements
+    switch (operand){
+        case '+':
+            cout << "The sum is: " << num1 + num2;
+            break;
+        case '-':
+            cout << "The difference is: " << num1 - num2;
+            break;
+        case '*':
+            cout << "The product is: " << num1 * num2;
+            break;
+        case '/':
+            cout << "The quotient is: " << num1 / num2;
+            break;
+        default:
+            cout << "Invalid operand entered. Please try again.";
+            break;
+    }
+
+    return 0;
+}

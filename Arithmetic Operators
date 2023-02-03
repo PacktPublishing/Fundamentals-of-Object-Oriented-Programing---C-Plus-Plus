@@ -1,0 +1,27 @@
+#include <iostream>
+
+using namespace std;
+
+
+/*
+ * Arithmetic Operators
+*/
+
+int main()
+{
+    int count = 10;
+
+//    cout << "The sum is: " << 15 + 8 << endl;
+//    cout << "The difference is: " << 15 - 8 << endl;
+//    cout << "The product is: " << 15 * 8 << endl;
+//    cout << "The quotient is: " << 15 / 8 << endl;
+//    cout << "The modulus is: " << 15 % 8 << endl;
+
+    cout << ++count << endl;
+    cout << ++count << endl;
+    cout << --count << endl;
+    cout << --count << endl;
+
+
+    return 0;
+}

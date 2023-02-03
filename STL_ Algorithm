@@ -1,0 +1,49 @@
+#include <iostream>
+#include <algorithm>
+
+using namespace std;
+
+
+/* The Standard Template Library:
+** Algorithms
+*/
+
+int arr[] = { 44, 12, -22, 32, -44, 55, 65, -77, 88, 44};
+int pattern[] = { 32, 65, 88};
+
+int main()
+{
+    int* ptr;
+    ptr = search(arr, arr+10, pattern, pattern+3);
+
+    if(ptr==arr+11){
+        cout << "No match found.\n";
+    }
+    else{
+        cout << "Match found at " << (ptr - arr) << endl;
+    }
+
+
+
+//    sort(arr, arr+11);
+//
+//    for(int i=0; i<11; i++){
+//        cout << arr[i] << ' ' << endl;
+//    }
+
+
+//    int n = count(arr, arr+10, 44); //count the number of 44's
+//
+//    cout << "\nThere are " << n << " 44's in the array." << endl;
+
+
+//    int* ptr;
+//    ptr = find(arr, arr+8, 44); //find the value 44
+//
+//    cout << "The value 44 was found at position "
+//            << (ptr-arr) << endl;
+
+    return 0;
+}
+
+

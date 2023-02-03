@@ -1,0 +1,29 @@
+#include <iostream>
+
+using namespace std;
+
+
+/* Variable Scope: Local & Global
+ *
+*/
+int globalVar = 10;
+
+void greeting(string input){
+    cout << myGreeting;
+}
+
+int main()
+{
+    int a; //local variable
+    string myGreeting = "Hi nice to meet you.\n";
+
+    a = 5;
+
+    cout << a << endl;
+    cout << globalVar << endl;
+
+    greeting(myGreeting);
+
+
+    return 0;
+}

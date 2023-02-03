@@ -1,0 +1,44 @@
+#include <iostream>
+
+using namespace std;
+
+
+/* Program: Simple Video Game Menu
+ *
+*/
+
+//function declarations
+void singlePlayerMode(){ cout << "Single player mode started..."; }
+void multiPlayerMode(){ cout << "Multi player mode started..."; }
+void createPlayerMode(){ cout << "Create your player..."; }
+void optionsMode(){ cout << "Edit options..."; }
+
+int main()
+{
+    int input;
+
+    cout << "1. Single Player\n";
+    cout << "2. Multi Player\n";
+    cout << "3. Create Player\n";
+    cout << "4. Options\n";
+    cout << "Enter selection: \n";
+
+    cin >> input;
+
+    switch (input){
+        case 1: singlePlayerMode();
+            break;
+        case 2: multiPlayerMode();
+            break;
+        case 3: createPlayerMode();
+            break;
+        case 4: optionsMode();
+            break;
+        default:
+            cout << "Invalid input entered.\n";
+            break;
+    }
+    cin.get(); //pauses console
+
+    return 0;
+}

@@ -1,0 +1,73 @@
+#include <iostream>
+
+using namespace std;
+
+
+/* Object File I/O
+**
+*/
+class Patient{
+protected:
+    string name;
+    int age;
+public:
+    void getData(){
+        cout << "\n Enter name: "; cin >> name;
+        cout << " Enter age: "; cin >> age;
+    }
+    void showData(){
+        cout << "\n Name: " << name;
+        cout << "\n Age: " << age;
+    }
+    void readFile(int); //read from file
+    void writeFile(); //write to file
+    static int numRecords(); //return # of patients in file
+};
+
+int main()
+{
+    Patient p;
+    char ch;
+
+    do{
+        cout << "Enter patient data: ";
+        p.getData();
+        p.writeFile();
+        cout << "Enter another record (y/n)? ";
+        cin >> ch;
+    }while(ch=='y');
+
+    int numPatients = Patient::numRecords(); //number of patient records
+    cout << "There are " << numPatients << " patient records on file\n";
+
+    for(int j=0; j<numPatients; j++){
+        cout << "\n Patient " << j;
+        p.readFile(j); //reads patient from disk
+        p.showData(); //displays patient info
+    }
+    cout << endl;
+
+    return 0;
+}
+
+void Patient::readFile(int np){
+    ifstream infile;
+    infile.open("PATIENTS.dat", ios::binary); //open file
+    infile.seekg(np*sizeof(Patient)); //move file pointer
+    infile.read((char*)this, sizeof(*this)); //read individual person
+}
+
+void Patient::writeFile(){
+    ofstream outfile;
+    outfile.open("PATIENTS.dat", ios::app | ios::binary);
+    outfile.write((char*)this, sizeof(*this)); //write to file
+}
+
+int Patient::numRecords(){
+    ifstream infile;
+    infile.open("PATIENTS.dat", ios::binary);
+    infile.seekg(0, ios::end);
+
+    return (int)infile.tellg() / sizeof(Patient);
+}
+

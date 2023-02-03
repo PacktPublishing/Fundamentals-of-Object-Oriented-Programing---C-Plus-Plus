@@ -1,0 +1,21 @@
+#include <iostream>
+
+using namespace std;
+
+/*
+ * Fahrenheit to Celsius converter
+ * User Input >> cin
+*/
+
+int main()
+{
+    int fahtemp; //for temperature in fahrenheit
+
+    cout << "Enter temperature in fahrenheit: ";
+    cin >> fahtemp;
+
+    int celtemp = (fahtemp - 32) * 5/9;
+    cout << "The equivalent in Celcius is: " << celtemp << '\n';
+
+    return 0;
+}

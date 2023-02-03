@@ -1,0 +1,46 @@
+#include <iostream>
+
+using namespace std;
+
+
+/* Function Overloading & Templates
+ *
+*/
+
+//function prototype
+//int sum(int, int);
+//double sum(double, double); //overloaded function
+
+template <typename T>
+T sum(T num1, T num2){
+    return (num1 + num2);
+}
+
+int main()
+{
+    //function call
+//    cout << sum(12, 3) << endl;
+//    cout << sum(13.75, 3.2) << endl;
+
+    int intResult;
+    double doubleResult;
+
+    //call template function for int values
+    intResult = sum<int>(5, 7);
+    cout << intResult << endl;
+
+    //call template function for double values
+    doubleResult = sum<double>(12.59, 7.52);
+    cout << doubleResult << endl;
+
+    return 0;
+}
+
+//function definition
+//int sum(int x, int y){
+//    return x+y;
+//}
+//
+//double sum(double x, double y){
+//    return x+y;
+//}

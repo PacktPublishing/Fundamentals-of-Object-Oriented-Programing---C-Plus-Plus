@@ -1,0 +1,38 @@
+#include <iostream>
+
+using namespace std;
+
+
+/* Program: Simple User Registration & Login System
+ *
+*/
+
+int main()
+{
+    string username;
+    string password;
+
+    cout << "Enter your username: ";
+    getline(cin, username, '\n');
+
+    cout << "Enter your password: ";
+    getline(cin, password, '\n');
+
+    cout << "Login with username and password: " << endl;
+
+    string user;
+    string pass;
+
+    getline(cin, user, '\n');
+    getline(cin, pass, '\n');
+
+    if (user == username && pass == password){
+        cout << "You're now logged in!" << endl;
+    }
+    else{
+        cout << "Username or password was invalid. Please try again..." << endl;
+    }
+
+
+    return 0;
+}

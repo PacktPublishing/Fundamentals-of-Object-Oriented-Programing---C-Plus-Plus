@@ -1,0 +1,43 @@
+#include <iostream>
+
+using namespace std;
+
+
+/* Friends: Functions
+**
+*/
+class Distance{
+private:
+    int feet;
+    float inches;
+
+public:
+    Distance() : feet(0), inches(0.0) { }
+    Distance(int ft, float in) : feet(ft), inches(in) { }
+
+    void getDistance(){
+        cout << "\nEnter feet: "; cin >> feet;
+        cout << "\nEnter inches: "; cin >> inches;
+    }
+    void displayDistance(){ cout << feet << "\'-" << inches << '\"'; }
+    friend float square(Distance); //friend function
+};
+
+float square(Distance d){
+    float fltFeet = d.feet + d.inches / 12; //convert to float
+    float feetSqrd = fltFeet * fltFeet; //calculate square
+    return feetSqrd;
+}
+
+
+int main()
+{
+    Distance dist(4, 7.0);
+
+    float sqft = square(dist); //functional notation to the square of distance
+
+    cout << "\nDistance = "; dist.displayDistance();
+    cout << "\nSquare = " << sqft << " square feet\n";
+
+    return 0;
+}

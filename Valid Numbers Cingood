@@ -1,0 +1,29 @@
+#include <iostream>
+
+using namespace std;
+
+
+/*Inputting Valid Numbers
+**
+*/
+
+int main()
+{
+    double x;
+
+    while(true){
+        cout << "\nEnter an integer: ";
+        cin >> x;
+        if(cin.good()){
+            cin.ignore(10, '\n');
+            break;
+        }
+        cin.clear();
+        cout << "Incorrect input entered.";
+        cin.ignore(10, '\n');
+    }
+
+    cout << "Number entered is " << x << endl;
+
+    return 0;
+}

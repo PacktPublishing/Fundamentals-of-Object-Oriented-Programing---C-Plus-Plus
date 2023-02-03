@@ -1,0 +1,22 @@
+#include <iostream>
+
+using namespace std;
+
+
+/* getline(cin, stringVal)
+ *
+*/
+
+int main()
+{
+    string name, dish;
+    cout << "Enter your name: ";
+    getline(cin, name);
+    cout << "Hello " << name << endl;
+    cout << "What's your favourite dish?" << endl;
+    getline(cin, dish);
+    cout << dish << " is delicious!!" << endl;
+
+    return 0;
+
+}

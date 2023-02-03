@@ -1,0 +1,39 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+
+/* The Standard Template Library:
+** Vectors
+*/
+
+int main()
+{
+    vector<int> v1; //vector of integers
+
+    v1.push_back(8); //put values at the end
+    v1.push_back(10);
+    v1.push_back(12);
+    v1.push_back(15);
+    v1.push_back(17);
+
+    for(int i=0; i<v1.size(); i++){ //display elements
+        cout << v1[i] << ' ' << endl;
+    }
+
+    v1[0] = 5;
+    v1[3] = 31;
+    v1.pop_back(); //removes last element
+    v1.insert(v1.begin()+2, 100); //insert 100 at position 2
+    v1.erase(v1.begin()+3); //erase element at position 3
+
+    cout << "\nNew values: " << endl;
+    for(int i=0; i<v1.size(); i++){ //display elements
+        cout << v1[i] << ' ' << endl;
+    }
+
+    return 0;
+}
+
+

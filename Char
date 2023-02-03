@@ -1,0 +1,23 @@
+#include <iostream>
+
+using namespace std;
+
+/*
+ * char DataType
+*/
+
+int main()
+{
+    char char1 = 'A';
+    //char char2 = '\t'; //tab variable
+    char char3 = '\n'; //newline variable
+
+    cout << char1;
+    //cout << char2;
+    cout << char3;
+
+    char1 = 'B';
+    cout << char1;
+
+    return 0;
+}

@@ -1,0 +1,33 @@
+#include <iostream>
+
+using namespace std;
+
+
+/* Pointers & References
+ *
+*/
+
+int main()
+{
+    int var1 = 5;
+    float var2 = 17.28;
+    string var3 = "I love seafood!";
+
+    int *p1 = &var1;
+    float *p2 = &var2;
+    string *p3 = &var3;
+
+//    cout << "Memory address of var1: " << &var1 << endl; //& - dereference operator
+//    cout << "Memory address of var2: " << &var2 << endl;
+//    cout << "Memory address of var3 " << &var3 << endl;
+
+    cout << "Value: "<< *p1 << " at memory address: " << p1 << endl;
+    cout << "Value: "<< *p2 << " at memory address: " << p2 << endl;
+    cout << "Value: "<< *p3 << " at memory address: " << p3 << endl;
+
+    delete p1;
+    delete p2;
+    delete p3;
+
+    return 0;
+}

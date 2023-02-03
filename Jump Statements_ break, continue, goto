@@ -1,0 +1,38 @@
+#include <iostream>
+
+using namespace std;
+
+
+/* Jump Statements: break, continue, goto
+ *
+*/
+
+int main()
+{
+    //break
+//    for (int n=15; n>0; n--){
+//        cout << n << ", ";
+//        if (n==3){
+//            cout << "countdown has been aborted!";
+//            break;
+//        }
+//    }
+
+    //continue
+//    for (int n=10; n>0; n--){
+//        if (n==4) continue;
+//        cout << n << ", ";
+//    }
+//    cout << "Go!!!";
+
+    //goto
+    int n=10;
+    checkpoint:
+        cout << n << ", ";
+        n--;
+
+        if (n>0) goto checkpoint;
+        cout << "Back at the checkpoint.";
+
+    return 0;
+}

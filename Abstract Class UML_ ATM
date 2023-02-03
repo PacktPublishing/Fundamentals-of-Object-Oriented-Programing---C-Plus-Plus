@@ -1,0 +1,231 @@
+#ifndef ACCOUNT_H
+#define ACCOUNT_H
+
+#include <iostream>
+#include <vector>
+#include <iomanip>
+#include <string>
+#include "Transaction.h"
+
+using namespace std;
+
+template <typename T>
+void print_vector(const std::vector<T> & vec, std::string sep=" ")
+{
+    for(auto elem : vec)
+    {
+        std::cout<<elem<< sep;
+    }
+    std::cout<<std::endl;
+}
+
+class Account
+{
+    public:
+        Account();
+        virtual ~Account();
+
+        Account(double init_bal) : _balance(init_bal) {}
+        virtual double GetBalance() { return _balance; }
+        virtual void PrintBalance() { cerr << "Error. Balance not available for base type." << endl; }
+
+        //overload + operator to add account balances
+        Account operator +(Account accObj) const{
+            double total = this->_balance + accObj._balance;
+            return Account(total);
+        }
+
+        bool Deposit(double amt){
+            _balance += amt;
+            transactions.push_back(Transaction(amt, "Deposit"));
+            return 1;
+        }
+        bool Withdraw(double amt) {
+            if(amt < _balance){
+                _balance -= amt;
+                transactions.push_back(Transaction(amt, "Withdrawal"));
+                return 1;
+            }else{
+                cout << "\nInsufficient funds available." << endl;
+                return 0;
+            }
+        }
+        void Report(){
+            std::vector<std::string> report;
+            report.push_back("Balance is: " + to_string(_balance));
+            report.push_back("Transactions: ");
+
+            for (auto t : transactions){
+                report.push_back(t.Report());
+            }
+
+            report.push_back("---------------------------");
+            //return report;
+
+        }
+        void GetTransactions(){
+            for (int i=0; i<transactions.size(); i++){
+                cout << setw(15) << transactions[i].GetType();
+                cout << setw(10) << transactions[i].GetAmount() << endl;
+            }
+        }
+
+    protected:
+        double _balance;
+        vector<Transaction> transactions;
+
+    private:
+};
+
+#endif // ACCOUNT_H
+
+
+#ifndef SAVINGSACCOUNT_H
+#define SAVINGSACCOUNT_H
+
+#include <iostream>
+using namespace std;
+
+#include <Account.h>
+
+
+class SavingsAccount : public Account
+{
+    public:
+        SavingsAccount() : interestRate(0.03) {}
+        virtual ~SavingsAccount();
+
+        SavingsAccount(double init_bal, float rate) : Account(init_bal), interestRate(rate) {}
+        void PrintBalance() override{ cout << "Savings account balance: " << GetBalance() << endl; }
+        double CalculateInterest() { return _balance += GetBalance() * interestRate; }
+
+
+    protected:
+
+    private:
+        float interestRate;
+};
+
+#endif // SAVINGSACCOUNT_H
+
+
+#ifndef CHECKINGACCOUNT_H
+#define CHECKINGACCOUNT_H
+
+#include <iostream>
+using namespace std;
+
+#include <Account.h>
+
+
+class CheckingAccount : public Account
+{
+    public:
+        CheckingAccount() : transferFee(.27) {}
+        virtual ~CheckingAccount();
+
+        CheckingAccount(double init_bal, double fee) : Account(init_bal), transferFee(fee) {}
+        void PrintBalance() override{ cout << "Checking account balance: " << GetBalance() << endl; }
+        bool Withdraw(double amt) {
+            double total = amt + transferFee;
+            if(total < _balance){
+                _balance -= total;
+                transactions.push_back(Transaction(total, "Withdrawal"));
+                return 1;
+            }else{
+                cout << "\nInsufficient funds available." << endl;
+                return 0;
+            }
+        }
+
+    protected:
+
+    private:
+        double transferFee;
+};
+
+#endif // CHECKINGACCOUNT_H
+
+
+#ifndef TRANSACTION_H
+#define TRANSACTION_H
+
+#include <iostream>
+using namespace std;
+
+class Transaction
+{
+    public:
+        Transaction();
+        virtual ~Transaction();
+
+        Transaction(double amt, string type) : amount(amt), type(type) {}
+
+        string Report(){
+            string report;
+            report += " ";
+            report += type;
+            report += " ";
+            report += to_string(amount);
+        }
+
+        string GetType(){ return type; }
+        double GetAmount() { return amount; }
+
+    protected:
+
+    private:
+        double amount;
+        string type;
+};
+
+#endif // TRANSACTION_H
+
+
+#include <iostream>
+#include "Account.h"
+#include "SavingsAccount.h"
+#include "CheckingAccount.h"
+
+using namespace std;
+
+/* WilBank ATM
+**
+*/
+
+int main()
+{
+    Account acc1;
+    CheckingAccount checking(2500, 0.35);
+    SavingsAccount savings(4550, 0.15);
+
+    Account *ptrAccount = &checking;
+
+    ptrAccount->PrintBalance();
+    ptrAccount->Withdraw(2000);
+    ptrAccount->Deposit(3400);
+    ptrAccount->Withdraw(200);
+    ptrAccount->Deposit(400);
+    ptrAccount->Withdraw(1000);
+    ptrAccount->Deposit(1500);
+
+    acc1.Deposit(500000);
+    acc1.Withdraw(4000);
+
+//    ptrAccount->GetTransactions();
+//    ptrAccount->PrintBalance();
+
+    ptrAccount->Report();
+
+
+//    ptrAccount = &savings;
+//    ptrAccount->PrintBalance();
+//    ptrAccount->Withdraw(5000);
+//    ptrAccount->PrintBalance();
+
+    acc1 = checking + savings; // total $ in accounts
+    cout << "\n\nTotal Balance: " << acc1.GetBalance() << endl;
+
+
+    return 0;
+}

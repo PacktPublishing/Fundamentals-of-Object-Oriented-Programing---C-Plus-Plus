@@ -1,0 +1,43 @@
+
+
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+/* Multi-dimensional Array
+ * Program: Enter 3 sets of grades for 4 different students
+*/
+
+const int STUDENTS = 4; //array dimensions
+const int GRADES = 3;
+
+
+int main()
+{
+    int s, g;
+    int grades[STUDENTS][GRADES]; //two-dimensional array
+
+    for(s=0; s<STUDENTS; s++)
+    for(g=0; g<GRADES; g++){
+
+        cout << "Enter grades for student " << s+1;
+        cout << ", grade " << g+1 << ": ";
+        cin >> grades[s][g]; //places grade in the array
+    }
+
+    cout << "\n\n Grades \n";
+    cout << "1 2 and 3";
+
+    for(s=0; s<STUDENTS; s++){
+
+        cout  << "\nStudent " << s+1;
+        for(g=0; g<GRADES; g++)
+
+            cout << setw(10) << grades[s][g]; //getting the grade from the array
+    }//end grades loop
+
+    cout << endl;
+
+    return 0;
+}

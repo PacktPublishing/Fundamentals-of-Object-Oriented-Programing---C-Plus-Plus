@@ -1,0 +1,32 @@
+#include <iostream>
+
+using namespace std;
+
+
+/* Static Class Data
+**
+*/
+class Counter{
+    static int countVar;
+
+public:
+    Counter(){ countVar++; }
+    static int getCount() { return countVar; }
+};
+
+int Counter::countVar = 1;
+
+int main()
+{
+    //Counter count1, count2, count3;
+
+    cout << Counter::getCount();
+
+//    cout << "Count is: " << count1.getCount() << endl;
+//    cout << "Count is: " << count2.getCount() << endl;
+//    cout << "Count is: " << count3.getCount() << endl;
+
+    return 0;
+}
+
+

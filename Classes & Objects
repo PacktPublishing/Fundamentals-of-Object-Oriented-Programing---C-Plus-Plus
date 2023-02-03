@@ -1,0 +1,32 @@
+#include <iostream>
+
+using namespace std;
+
+
+/* Classes & Objects
+**
+*/
+
+class SimpleClass{
+private:
+    int someIntegerData; //integer data property
+
+public:
+    //member functions
+    void setData(int d){ someIntegerData = d; }
+    void showData(){ cout << "\nThe data value is: " << someIntegerData; }
+
+};
+
+int main()
+{
+    SimpleClass obj1, obj2; //initialize objects
+
+    obj1.setData(107);
+    obj2.setData(1104); //setting the value for data property
+
+    obj1.showData();
+    obj2.showData();
+
+    return 0;
+}

@@ -1,0 +1,59 @@
+#include <iostream>
+
+using namespace std;
+
+
+/* Operator Overloading
+** Overloaded '+' operator
+*/
+
+class Distance{
+private:
+    int feet;
+    float inches;
+
+public:
+    //Distance(){ feet = 0; inches = 0.0; } //default constructor
+    Distance() : feet(0), inches(0.0) { }
+    Distance(int ft, float in) : feet(ft), inches(in) { } //parameterized constructor
+
+    void getDistance(){
+        cout << "\nEnter feet: "; cin >> feet;
+        cout << "\nEnter inches: "; cin >> inches;
+    }
+
+    void displayDistance(){ cout << feet << "-" << inches; }
+
+    Distance operator + (Distance) const; //add 2 distances
+};
+
+Distance Distance::operator+(Distance disObj) const {
+    int f = feet + disObj.feet;
+    float i = inches + disObj.inches;
+    if(i>=12.0){
+        i -= 12.0;
+        f++;
+    }
+    return Distance(f,i);
+}
+
+
+int main()
+{
+    Distance d1, d3, d4;
+
+    d1.getDistance();
+
+    Distance d2(10, 7.25);
+
+    d3 = d1 + d2;
+
+    d4 = d1 + d2 + d3;
+
+    cout << "d1 = "; d1.displayDistance(); cout << endl;
+    cout << "d2 = "; d2.displayDistance(); cout << endl;
+    cout << "d3 = "; d3.displayDistance(); cout << endl;
+    cout << "d4 = "; d4.displayDistance(); cout << endl;
+
+    return 0;
+}

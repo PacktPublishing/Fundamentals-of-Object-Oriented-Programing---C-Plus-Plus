@@ -1,0 +1,70 @@
+#include <iostream>
+
+using namespace std;
+
+
+/* Friends: Functions
+**
+*/
+class B; //needed for friend function declaration
+
+class A{
+private:
+    int data;
+public:
+    A() : data(3) { } //default func
+    friend int friendFunc(A, B); //friend function
+};
+
+class B{
+private:
+    int data;
+public:
+    B() : data(7) { }
+    friend int friendFunc(A, B);
+};
+
+int friendFunc(A aObj, B bObj){
+    return(aObj.data + bObj.data);
+}
+
+int main()
+{
+    A aObj;
+    B bObj;
+
+    cout << friendFunc(aObj, bObj) << endl;
+
+    return 0;
+}
+
+
+/* Friends: Classes
+**
+
+class A{
+private:
+    int data;
+public:
+    A() : data(3) { } //default func
+    friend class B;
+};
+
+class B{
+public:
+    void friendFunc1(A aObj) { cout << "\nData value = " << aObj.data; }
+    void square(A aObj) { cout << "\nThe square is: " << aObj.data * aObj.data; }
+};
+
+
+int main()
+{
+    A aObj;
+    B bObj;
+
+    bObj.friendFunc1(aObj);
+    bObj.square(aObj);
+
+    return 0;
+}
+*/

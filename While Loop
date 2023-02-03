@@ -1,0 +1,31 @@
+#include <iostream>
+
+using namespace std;
+
+
+/* Loops: While
+ *
+*/
+
+int main()
+{
+//    int n = 99;
+//
+//    while(n != 0){
+//        cin >> n;
+//        cout << endl;
+//    }
+
+    int power=1;
+    int num=1;
+
+    while(power < 10000){
+        cout << setw(2) << num;
+        cout << setw(5) << power << endl;
+        ++num;
+        power = num*num*num*num;
+    }
+    cout << endl;
+
+    return 0;
+}

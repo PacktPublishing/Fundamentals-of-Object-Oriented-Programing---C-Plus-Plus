@@ -1,0 +1,37 @@
+#include <iostream>
+
+using namespace std;
+
+
+/*Files & Streams - Char I/O
+**
+*/
+
+int main()
+{
+    ifstream writefile("TEST.txt");
+    cout << writefile.rdbuf();
+    cout << endl;
+
+
+//    char ch;
+//    ifstream readfile("TEST.txt");
+//    while(readfile){
+//        readfile.get(ch);
+//        cout << ch;
+//    }
+//    cout << endl;
+
+
+
+//    string str = "You should be far more concerned with your current"
+//                " trajectory than with your current results. - Atomic Habits";
+//
+//    ofstream writefile("TEST.txt");
+//    for(int i = 0; i<str.size(); i++)
+//    writefile.put(str[i]);
+//    cout << "File written\n";
+
+
+    return 0;
+}

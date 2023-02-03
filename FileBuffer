@@ -1,0 +1,29 @@
+#include <iostream>
+
+using namespace std;
+
+
+*Files & Streams - Writing To A File
+**
+*/
+
+int main()
+{
+    const int MAX = 80;
+    char buffer[MAX];
+
+    ifstream readfile("POEMS.txt");
+    while(!readfile.eof()){
+        readfile.getline(buffer, MAX); //read each line of text
+        cout << buffer << endl;l
+    }
+
+//    ofstream writefile("POEMS.txt");
+//
+//    writefile << "Over hill, over dale,\n";
+//    writefile << "Thorough bush, thorough brier,,\n";
+//    writefile << "Over park, over pale,\n";
+//    writefile << "Thorough flood, thorough fire!\n";
+
+    return 0;
+}

@@ -1,0 +1,25 @@
+#include <iostream>
+
+using namespace std;
+
+
+/* DataType - const, float
+ *
+ * Calculate area of circle
+*/
+
+int main()
+{
+    float radius;
+    const float PI = 3.14159F;
+
+    //prompt
+    cout << "Enter radius value: ";
+    cin >> radius;
+
+    float area = PI * radius * radius;
+
+    cout << "The area of the circle is: " << area << endl;
+
+    return 0;
+}

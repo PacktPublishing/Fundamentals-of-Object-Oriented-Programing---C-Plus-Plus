@@ -1,0 +1,40 @@
+#include <iostream>
+
+using namespace std;
+
+
+/* String Functions
+ * Find Replace Program
+*/
+
+int main()
+{
+    string str1 = "The little dog laughed";
+    string str2 = " to see such fun";
+    string str3;
+    int strLength;
+
+    strLength = str1.size(); //number of characters in string
+    str3 = str1 + " " + str2; //concat 2 strings
+    str1.append(str2); //concat or join string
+    str2.insert(0, "Great"); //insert at beginning of string
+    str2.replace(0, 1, "g"); //replace first character at position 0
+    str1.erase(4, 7); //erase 7 characters beginning at character 4
+
+//    cout << "The size of str1 is: " << strLength << endl;
+//    cout << "The value of str3 is: " << str3 << endl;
+//    cout << "The value of str1.append(str2) is: " << str1 << endl;
+//    cout << "The value of str2.insert() is: " << str2 << endl;
+//    cout << "The value of str2.replace() is: " << str2 << endl;
+//    cout << "The value of str1.erase() is: " << str1 << endl;
+
+    int x = str3.find(' ');
+    while(x < str3.size()){
+        str3.replace(x, 1, "-");
+        x = str3.find(' ');
+    }
+
+    cout << "str3: " << str3 << endl;
+
+    return 0;
+}

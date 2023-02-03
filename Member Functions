@@ -1,0 +1,54 @@
+#include <iostream>
+
+using namespace std;
+
+
+/* Classes & Objects
+** Constructor Overloading, Member Functions, Objects as Function Arguments
+*/
+class Distance{
+private:
+    int feet;
+    float inches;
+
+public:
+    //Distance(){ feet = 0; inches = 0.0; } //default constructor
+    Distance() : feet(0), inches(0.0) { }
+    Distance(int ft, float in) : feet(ft), inches(in) { } //parameterized constructor
+
+    void getDistance(){
+        cout << "\nEnter feet: "; cin >> feet;
+        cout << "\nEnter inches: "; cin >> inches;
+    }
+
+    void displayDistance(){ cout << feet << "-" << inches; }
+
+    void addDistance(Distance, Distance); //declaration or prototype
+};
+
+void Distance::addDistance(Distance d2, Distance d3){
+    inches = d2.inches + d3.inches;
+    feet = 0;
+    if(inches >= 12.0){ //if total exceeds 12.0/1 foot
+        inches -= 12.0; //decrease inches by 12.0
+        feet++; //increment feet by 1
+    }
+    feet += d2.feet + d3.feet; //add the feet
+}
+
+int main()
+{
+    Distance dist1, dist3;
+    Distance dist2(15, 6.25); //setting values using constructor
+
+    dist1.getDistance(); //get values from user
+
+    dist3.addDistance(dist1, dist2); //adding distance 1 and 2
+
+    cout << "\ndist1 = "; dist1.displayDistance();
+    cout << "\ndist2 = "; dist2.displayDistance();
+    cout << "\ndist3 = "; dist3.displayDistance();
+    cout << endl;
+
+    return 0;
+}

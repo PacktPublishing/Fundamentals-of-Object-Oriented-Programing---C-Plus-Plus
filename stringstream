@@ -1,0 +1,26 @@
+#include <iostream>
+
+using namespace std;
+
+#include <string>
+#include <sstream>
+/* stringstream
+ *
+*/
+
+int main()
+{
+    string stringVal;
+    float price = 0.0;
+    int qty = 0
+
+    cout << "Enter price: "; //prompt for price
+    getline(cin, stringVal); //storing the price in our string variable
+    stringstream(stringVal) >> price; //extracting the input and storing in price variable
+    cout << "Enter quantity: ";
+    getline(cin, stringVal); //storing the quantity in our string variable
+    stringstream(stringVal) >> qty; //extracting the input and storing in quantity variable
+    cout << "Total price: " << price*qty << endl; //calculating the total price
+
+    return 0;
+}

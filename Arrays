@@ -1,0 +1,38 @@
+
+#include <iostream>
+
+using namespace std;
+
+
+/* Arrays
+ *
+*/
+
+int main()
+{
+    //array declaration
+    int age[3]; //array 'age' of 2 integers
+    int grades[] = {86, 91, 74, 96, 78};
+    const int SIZE = 5;
+    int average = 0;
+    int total = 0;
+
+    for (int i=0; i<SIZE; i++){
+        total += grades[i];
+    }
+
+    average = total/SIZE;
+    cout << "The average grade is " << average << endl;
+
+    //user prompt
+//    for (int i=0; i<3; i++){
+//        cout << "Enter an age: ";
+//        cin >> age[i]; //access individual array element
+//    }
+//
+//    for (int j=0; j<3; j++){
+//        cout << "You entered: " << age[j] << endl;
+//    }
+
+    return 0;
+}

@@ -1,0 +1,64 @@
+#include <iostream>
+
+using namespace std;
+
+
+/* Default, Parameterized, Copy Constructors
+** "this" Pointer
+*/
+
+class Student{
+    string name;
+    string email;
+    int studentId;
+    int age;
+
+public:
+    //default constructor
+    Student() : name("John Doe"), email("jd@student.com"), studentId(1), age(17) { }
+    //parameterized constructor
+    Student(string n, string em, int id, int a) : name(n), email(em), studentId(id), age(a) { }
+    //copy constructor
+    Student(const Student& st){
+        name = st.name;
+        email = st.email;
+        studentId = st.studentId;
+        age = st.age;
+    }
+
+    void PrintStudentInfo(){
+        cout << "\nStudent name: " << name << endl;
+        cout << "Student id: " << studentId << endl;
+        cout << "Student age: " << age << endl;
+        cout << "Student email: " << email << endl;
+    }
+
+    &SetStudentInfo(string name, string email, int studentId, int age){
+        this->name = name;
+        this->email = email;
+        this->studentId = studentId;
+        this->age = age;
+    }
+};
+
+int main()
+{
+    Student student1;
+    cout << "*********** student 1 *************";
+    student1.PrintStudentInfo();
+
+    Student student2("Tanya Forbes", "tforbes@yahoo.com", 213243, 19);
+    cout << endl;
+    cout << "*********** student 2 ***************";
+    Student student3 = student2; //copy constructor
+    student3.PrintStudentInfo();
+
+    Student student4;
+    student4.SetStudentInfo("Paul Walker", "pwalker@doxalearn.com", 342312, 21);
+    cout << endl;
+    cout << "*********** student 4 ***************";
+    student4.PrintStudentInfo();
+
+
+    return 0;
+}

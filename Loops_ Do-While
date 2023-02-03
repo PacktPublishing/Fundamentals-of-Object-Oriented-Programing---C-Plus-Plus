@@ -1,0 +1,28 @@
+#include <iostream>
+
+using namespace std;
+
+
+/* Loops: Do-While
+ *
+*/
+
+int main()
+{
+    long dividend, divisor;
+    char ch;
+
+    do
+    {
+        cout << "Enter dividend: "; cin >> dividend;
+        cout << "Enter divisor: "; cin >> divisor;
+        cout << "The quotient is: " << dividend / divisor;
+        cout << ", remainder is " << dividend % divisor;
+
+        cout << "\nDo you want to perform another? (y/n): ";
+        cin >> ch;
+    }
+    while(ch != 'n');
+
+    return 0;
+}

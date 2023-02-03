@@ -1,0 +1,52 @@
+#include <iostream>
+
+using namespace std;
+
+
+#include <iostream>
+#include "math.h" // create header file and paste the function declarations below in it
+
+using namespace std;
+
+/* Functions
+ * Calculator program: Implement functions for arithmetic operations
+*/
+
+//function declarations
+float sum(int x, int y){ return x+y;}
+float subtraction(int x, int y){ return x-y;}
+float multiplication(int x, int y){ return x*y;}
+float division(int x, int y){ return x/y;}
+
+int main()
+{
+    char operand;
+    float num1, num2;
+
+    //user prompt
+    cout << "Enter an operator (+, -, *, /): ";
+    cin >> operand;
+    cout << "Enter two numbers: " << endl;
+    cin >> num1 >> num2;
+
+    //switch statements
+    switch (operand){
+        case '+':
+            cout << "The sum is: " << sum(num1, num2);
+            break;
+        case '-':
+            cout << "The difference is: " << subtraction(num1, num2);
+            break;
+        case '*':
+            cout << "The product is: " << multiplication(num1, num2);
+            break;
+        case '/':
+            cout << "The quotient is: " << division(num1, num2);
+            break;
+        default:
+            cout << "Invalid operand entered. Please try again.";
+            break;
+    }
+
+    return 0;
+}
